@@ -1,38 +1,26 @@
-import {Component, Input, EventEmitter, OnInit, Output} from '@angular/core';
-import {IEvent} from "../../interface";
+import {Component, Input, EventEmitter, Output} from '@angular/core';
+import {IEvent} from '../../interfaces/table-data-interface';
 
 @Component({
   selector: 'input-field',
   templateUrl: './input-field.component.html',
   styleUrls: ['./input-field.component.scss']
 })
-export class InputFieldComponent implements OnInit {
-  @Input() value: string = '';
+export class InputFieldComponent {
+  value: string = '';
   @Input() type: string = 'text';
-  @Input() fontSize: string = '18px';
   @Input() placeholder: string = '';
-  @Input() readonly: boolean = false;
-  @Input() disabled: boolean = false;
 
   @Output() onInputFieldChange = new EventEmitter<IEvent>();
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
-  onInputFiledClick(): void {
-
-  }
 
   onItemValueClean(inputEl: HTMLInputElement): void {
     inputEl.value = '';
-    this.onInputFieldChange.emit({data: '', action: 'text-changed'});
+    this.onInputFieldChange.emit({data: '', action: 'text-change'});
   }
 
   onInputFiledKeyUp(): void {
-    this.onInputFieldChange.emit({data: this.value, action: 'text-changed'});
+    this.onInputFieldChange.emit({data: this.value, action: 'text-change'});
   }
 
 }

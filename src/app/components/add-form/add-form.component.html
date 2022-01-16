@@ -1,1 +1,51 @@
-<p>add-user-form works!</p>
+<div class="add-form-holder">
+  <button class="close" (click)="onCloseClick()">X</button>
+  <form [formGroup]="form">
+    <div class="input-field-list">
+      <label for="firstName">First Name</label>
+      <input type="text" id="firstName" formControlName="firstName">
+    </div>
+    <div class="input-field-list">
+      <label for="lastName">Last Name</label>
+      <input type="text" id="lastName" formControlName="lastName">
+    </div>
+    <div class="input-field-list">
+      <label for="email">Email</label>
+      <input type="text" id="email" formControlName="email">
+      <span *ngIf="(addFormControl?.email?.touched || submitted) && addFormControl?.email?.invalid"
+            class="invalid-data">Invalid Email</span>
+    </div>
+    <div class="input-field-list">
+      <label for="phone">Phone</label>
+      <input type="number" id="phone" formControlName="phone">
+    </div>
+    <fieldset formGroupName="address">
+      <legend>Address</legend>
+      <div class="input-field-list">
+        <label for="streetAddress">Street Address</label>
+        <input type="text" id="streetAddress" formControlName="streetAddress">
+      </div>
+      <div class="input-field-list">
+        <label for="city">City</label>
+        <input type="text" id="city" formControlName="city">
+      </div>
+      <div class="input-field-list">
+        <label for="state">State</label>
+        <input type="text" id="state" formControlName="state">
+      </div>
+      <div class="input-field-list">
+        <label for="zip">Zip</label>
+        <input type="number" id="zip" formControlName="zip">
+      </div>
+    </fieldset>
+    <div class="input-field-list">
+      <textarea placeholder="Description"
+                [value]="''" formControlName="description">
+      </textarea>
+    </div>
+  </form>
+  <button class="add-data"
+          [disabled]="form?.invalid"
+          (click)="onAddClick()">Add New User
+  </button>
+</div>

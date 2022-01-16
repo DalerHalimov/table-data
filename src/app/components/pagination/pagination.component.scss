@@ -1,0 +1,50 @@
+@import '../../scss/style-settings';
+
+.pagination-holder {
+  position: relative;
+  width: 100%;
+  right: 0;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .control-button {
+    font-size: 18px;
+    border: none;
+    min-width: 50px;
+    padding: 10px 15px;
+    color: $cold-blue-color;
+    border-radius: 5px;
+    background: $cold-blue-white-color;
+    cursor: pointer;
+
+    &:hover {
+      background: $cold-blue-white-color-hover;
+    }
+  }
+
+  .pagination-nav {
+    .nav-button {
+      width: 30px;
+      height: 30px;
+      margin: 0 5px;
+      border: none;
+      background: transparent;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      color: $cold-blue-color;
+
+      &:hover {
+        background: $cold-blue-color;
+        color: $white-color;
+      }
+
+      &.selected {
+        background: $cold-blue-color;
+        color: $white-color;
+      }
+    }
+  }
+}

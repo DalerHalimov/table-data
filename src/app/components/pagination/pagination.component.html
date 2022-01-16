@@ -1,1 +1,12 @@
-<p>pagination works!</p>
+<div class="pagination-holder">
+  <button class="control-button"
+          (click)="onNextPageClick(false)">Prev
+  </button>
+  <div *ngFor="let pag of pages let idx = index"
+       class="pagination-nav">
+    <button class="nav-button"
+            [class.selected]="selectedPage === idx"
+            (click)="onPageClick(idx)">{{pag}}</button>
+  </div>
+  <button class="control-button" (click)="onNextPageClick()">Next</button>
+</div>

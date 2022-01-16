@@ -1,14 +1,14 @@
 @import '../../scss/style-settings';
 
 :host {
-  width: 100%;
+  width: calc(100% - 100px);
   display: flex;
   justify-content: center;
 }
 
 .input-field {
   position: relative;
-  width: calc(100% - 30px);
+  width: calc(100% - 50px);
   max-width: 100%;
   min-height: 50px;
   margin: 5px 0 0 0;
@@ -18,10 +18,11 @@
     right: 5px;
     top: 5px;
     border: none;
-    color: $cold-green-color;
+    color: $cold-blue-color;
     background: transparent;
-    font-size: 18px;
+    font-size: 21px;
     padding: 0;
+    cursor: pointer;
     z-index: 1;
 
     &:disabled {
@@ -34,7 +35,7 @@
     position: absolute;
     top: -5px;
     left: 3px;
-    color: #a1a1a1;
+    color: $cold-blue-color;
     font-family: sans-serif;
     font-size: 14px;
     z-index: 1;
@@ -46,10 +47,11 @@
     display: block;
     height: 40px;
     border: none;
-    border-bottom: 1px solid $cold-green-color;
+    border-bottom: 1px solid $cold-blue-color;
     margin: 10px auto;
     color: rgba(0, 0, 0, 0.54);
     border-radius: 0;
+    font-size: 21px;
     cursor: pointer;
 
     &.empty {

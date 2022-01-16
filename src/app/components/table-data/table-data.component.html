@@ -1,1 +1,40 @@
-<p>table-data works!</p>
+<div class="table-data-holder">
+  <header class="table-data-header">
+    <input-field [type]="'text'"
+                 [placeholder]="'Search'"
+                 (onInputFieldChange)="onInputFieldChange($event)">
+    </input-field>
+    <button class="add-user"
+            (click)="onAddFormClick()">Add
+    </button>
+  </header>
+  <table>
+    <tr>
+      <th (click)="onSortClick('id')">Id {{tableSortConfig?.id ? '▲' : '▼'}}</th>
+      <th (click)="onSortClick('firstName')">First Name {{tableSortConfig?.firstName ? '▲' : '▼'}}</th>
+      <th (click)="onSortClick('lastName')">Last Name {{tableSortConfig?.lastName ? '▲' : '▼'}}</th>
+      <th (click)="onSortClick('email')">Email {{tableSortConfig?.email ? '▲' : '▼'}}</th>
+      <th (click)="onSortClick('phone')">Phone {{tableSortConfig?.phone ? '▲' : '▼'}}</th>
+    </tr>
+    <ng-container *ngFor="let table of tableData let idx = index">
+      <tr (click)="onTableRowClick(idx)">
+        <td>{{table?.id}}</td>
+        <td>{{table?.firstName}}</td>
+        <td>{{table?.lastName}}</td>
+        <td>{{table?.email}}</td>
+        <td>{{table?.phone}}</td>
+      </tr>
+      <tr>
+        <td *ngIf="tableDataRowIdx === idx" colspan="5">
+          <p><span>{{table?.firstName}} </span><span>{{table?.lastName}}</span></p>
+          <p>Description: {{table?.description}}</p>
+          <p>Address: <span>{{table?.address?.state}}</span>
+            <span>{{table?.address?.city}}</span>
+            <span>{{table?.address?.streetAddress}}</span></p>
+          <p>{{table?.address?.zip}}</p>
+        </td>
+      </tr>
+    </ng-container>
+  </table>
+</div>
+
