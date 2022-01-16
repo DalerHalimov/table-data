@@ -1,0 +1,19 @@
+<div class="input-field fa">
+  <input
+    #inputEl
+    class="input"
+    [class.empty]="!inputEl.value"
+    [style.fontSize]="fontSize"
+    [type]="type"
+    [value]="value"
+    [placeholder]="placeholder"
+    [readonly]="readonly"
+    [(ngModel)]="value"
+    (keyup)="onInputFiledKeyUp()"
+    (click)="onInputFiledClick()">
+  <button class="clean-item-value fa fa-trash-o"
+          [disabled]="disabled"
+          [style.opacity]="inputEl?.value ? 1:0"
+          (click)="onItemValueClean(inputEl)"></button>
+  <span class="placeholder" [style.opacity]="inputEl?.value ? 1:0">{{inputEl?.placeholder}}</span>
+</div>
