@@ -7,3 +7,7 @@
 <add-form *ngIf="appService?.showAddFormPopup"
           (onAddFormChange)="onAddFormChange($event)">
 </add-form>
+<error-popup *ngIf="appService?.errorPopup?.show"
+             [errorPopup]="appService.errorPopup"
+             (onErrPopupChange)="onErrPopupChange($event)">
+</error-popup>

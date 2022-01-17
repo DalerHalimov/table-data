@@ -41,6 +41,10 @@ export class AppComponent implements OnInit, OnDestroy {
     this.getTableData(getTableDataParams);
   }
 
+  public onErrPopupChange(evt: IEvent): void {
+    this.appService.errorPopup.show = false;
+  }
+
   private getTableData(tableDataParams: IParamsGetTableData): void {
     this.tableService.getTableData(tableDataParams)
       .pipe(takeUntil(this.destroy$)).subscribe((res: ITableData[]) => {

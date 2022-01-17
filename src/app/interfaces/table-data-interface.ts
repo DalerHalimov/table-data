@@ -28,6 +28,12 @@ export interface IEvent {
   data?: any;
 }
 
+export interface IErrorPopup {
+  title?: string;
+  msg?: string;
+  show?: boolean;
+}
+
 export interface IParamsGetTableData {
   id?: number;
   number?: string;
