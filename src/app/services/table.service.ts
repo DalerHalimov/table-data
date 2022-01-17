@@ -12,14 +12,14 @@ export class TableService {
 
   public getTableData(params: IParamsGetTableData): Observable<ITableData[]> {
     const par = new HttpParams()
-      // .append('rows', `${params?.rows ? params.rows : '15'}`)
-      // .append('id', `${params?.id ? params.id : '{number|1000}'}`)
-      // .append('firstName', `${params?.firstName ? params.firstName : '{firstName}'}`)
-      // .append('lastName', `${params?.lastName ? params.lastName : '{lastName}'}`)
-      // .append('email', `${params?.email ? params.email : '{email}'}`)
-      // .append('phone', `${params?.phone ? params.phone : '{phone}'}`)
-      // .append('address', `${params?.address ? params.address : '{addressObject}'}`)
-      // .append('description', `${params?.description ? params.description : '{lorem|32}'}`)
+      .append('rows', `${params?.rows ? params.rows : '15'}`)
+      .append('id', `${params?.id ? params.id : '{number|1000}'}`)
+      .append('firstName', `${params?.firstName ? params.firstName : '{firstName}'}`)
+      .append('lastName', `${params?.lastName ? params.lastName : '{lastName}'}`)
+      .append('email', `${params?.email ? params.email : '{email}'}`)
+      .append('phone', `${params?.phone ? params.phone : '{phone}'}`)
+      .append('address', `${params?.address ? params.address : '{addressObject}'}`)
+      .append('description', `${params?.description ? params.description : '{lorem|32}'}`)
     return this.http.get<ITableData[]>(this.baseUrl, {params: par});
   }
 }
