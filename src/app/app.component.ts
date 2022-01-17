@@ -38,6 +38,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   public onPaginationChange(evt: IEvent): void {
     const getTableDataParams: IParamsGetTableData = {};
+    getTableDataParams.rows = 15;
     this.getTableData(getTableDataParams);
   }
 
